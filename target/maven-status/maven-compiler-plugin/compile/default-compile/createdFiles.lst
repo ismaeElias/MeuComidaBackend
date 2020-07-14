@@ -1,0 +1,12 @@
+JAXRSConfiguration.class
+br\com\meucomida\api\meucomid\models\Restaurante.class
+br\com\meucomida\api\meucomid\resources\comidaResources.class
+br\com\meucomida\api\meucomid\resources\restauranteResources.class
+br\com\meucomida\api\meucomid\models\Usuario.class
+br\com\meucomida\api\meucomid\models\Comida.class
+br\com\meucomida\api\meucomid\resources\avaliacaoResources.class
+br\com\meucomida\api\meucomid\models\Pedido.class
+br\com\meucomida\api\meucomid\models\Avaliacao.class
+br\com\meucomida\api\meucomid\resources\pedidoResources.class
+br\com\meucomida\api\meucomid\resources\usuarioResources.class
+CorsFilter.class
