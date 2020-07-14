@@ -19,6 +19,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -38,8 +39,8 @@ public class pedidoResources {
     EntityManager entityManager;
     
     @GET
-    public List<Pedido> getPedidos(){
-        return entityManager.createQuery("SELECT P FROM Pedido P", Pedido.class).getResultList();
+    public List<Pedido> getPedidos(@QueryParam("usuario") String usuario){
+        return entityManager.createQuery("SELECT P FROM Pedido P where P.usuario = :usuario", Pedido.class).setParameter("usuario", usuario).getResultList();
     }
     
     @POST

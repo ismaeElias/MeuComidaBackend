@@ -39,13 +39,15 @@ public class comidaResources {
     EntityManager entityManager;
     
     @GET
-    public List<Comida> getComidas(@QueryParam("nome") String nome, @QueryParam("restauranteId") Integer id){
-        if( nome == null && id == null){
-          return entityManager.createQuery("SELECT C FROM Comida C", Comida.class).getResultList();
+    public List<Comida> getComidas(@QueryParam("nome") String nome, @QueryParam("restauranteId") Integer restauranteId){
+        if( nome == null){
+          return entityManager.createNamedQuery("Comida.findByRestaurante").setParameter("restauranteId", restauranteId).getResultList();
         }else if(nome.length() > 1){
-          return entityManager.createNamedQuery("Comida.findByComida").setParameter("nome", nome).getResultList();
+          return entityManager.createNamedQuery("Comida.findByComida")
+                              .setParameter("nome", nome)
+                              .setParameter("restauranteId", restauranteId).getResultList();
         }else{
-          return entityManager.createNamedQuery("Comida.findByRestaurante").setParameter("restauranteId", id).getResultList();
+          return entityManager.createQuery("SELECT C FROM Comida C", Comida.class).getResultList();
         }
     }
     

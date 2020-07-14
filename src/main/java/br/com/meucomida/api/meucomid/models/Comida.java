@@ -23,8 +23,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "comida", schema = "public")
 @NamedQueries({
-    @NamedQuery(name = "Comida.findByComida", query = "SELECT C FROM Comida C WHERE C.nome = :nome"),
-    @NamedQuery(name = "Comida.findByRestaurante", query = "SELECT C FROM Comida C WHERE C.restauranteId = :id")
+    @NamedQuery(name = "Comida.findByComida", query = "SELECT C FROM Comida C WHERE C.nome = :nome and  C.restauranteId = :restauranteId"),
+    @NamedQuery(name = "Comida.findByRestaurante", query = "SELECT C FROM Comida C WHERE C.restauranteId = :restauranteId")
 })
 public class Comida implements Serializable{
     
